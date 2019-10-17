@@ -1,0 +1,27 @@
+{% if emails['other'] %}
+
+<p class="text-center text-muted m-3"> {{emails['other']|length}} other emails</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <th>Sender name</th>
+            <th>Sender email</th>
+            <th>Subject</th>
+        </tr>
+    </thead>
+
+    {% for email in emails['other'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{email['sender_name']}}</td>
+        <td>{{email['sender_email']}}</td>
+        <td>{{email['subject']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<h4 class="text-center text-muted m-5">No emails in other</h4>
+{% endif %}

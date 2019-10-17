@@ -1,0 +1,27 @@
+{% if emails['grade12'] %}
+
+<p class="text-center text-muted m-3"> {{emails['grade12']|length}} emails from Grade 12 students</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Sender name</th>
+            <th>Sender email</th>
+            <th>Subject</th>
+        </tr>
+    </thead>
+
+    {% for email in emails['grade12'] %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{email['sender_name']}}</td>
+        <td>{{email['sender_email']}}</td>
+        <td>{{email['subject']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<h4 class="text-center text-muted m-5">No emails from grade 12 students</h4>
+{% endif %}
